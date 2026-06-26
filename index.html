@@ -5,81 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECHOES OF THE NILE - TERMINAL</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* هێنانی فۆنتەکان */
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Montserrat:wght@300;700;900&display=swap');
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #020617; /* ڕەنگی بنەڕەتی زۆر تاریک */
-            overflow: hidden;
-            margin: 0;
-        }
-        .tech-font {
-            font-family: 'JetBrains Mono', monospace;
-        }
-        
-        /* چینی تاریکی شین لەسەر ڤیدیۆکە */
-        .blue-tint-overlay {
-            background: linear-gradient(135deg, rgba(2, 6, 23, 0.85) 0%, rgba(0, 40, 100, 0.4) 100%);
-            mix-blend-mode: multiply;
-        }
-
-        /* دروستکردنی شەپۆلە جوڵاوە شینەکان */
-        .wave-layer {
-            position: absolute;
-            pointer-events: none;
-            filter: blur(60px); /* نەرمکردنەوەی شەپۆلەکان بۆ ئەوەی وەک وێنەکە دەربکەون */
-            opacity: 0.6;
-        }
-
-        /* شەپۆلی یەکەم - شینی تۆخ */
-        .wave-1 {
-            width: 120vw;
-            height: 120vw;
-            background: linear-gradient(45deg, rgba(0, 30, 120, 0.7), rgba(0, 100, 255, 0.3));
-            border-radius: 43% 57% 65% 35% / 45% 52% 48% 55%;
-            top: -30%;
-            left: -20%;
-            animation: flow 25s infinite linear;
-            mix-blend-mode: overlay;
-        }
-
-        /* شەپۆلی دووەم - شینی بریقەدار */
-        .wave-2 {
-            width: 100vw;
-            height: 100vw;
-            background: linear-gradient(135deg, rgba(0, 200, 255, 0.2), rgba(0, 50, 200, 0.5));
-            border-radius: 35% 65% 55% 45% / 55% 45% 65% 35%;
-            bottom: -20%;
-            right: -20%;
-            animation: flow-reverse 30s infinite linear;
-            mix-blend-mode: screen;
-        }
-
-        /* ئەنیمەیشنی شەپۆلەکان */
-        @keyframes flow {
-            0% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(180deg) scale(1.1); }
-            100% { transform: rotate(360deg) scale(1); }
-        }
-        @keyframes flow-reverse {
-            0% { transform: rotate(360deg) scale(1.1); }
-            50% { transform: rotate(180deg) scale(1); }
-            100% { transform: rotate(0deg) scale(1.1); }
-        }
-
-        /* ئەنیمەیشنی هاتنە ناوەوەی دوگمەکان */
-        .fade-in-up {
-            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="relative h-screen w-screen text-white antialiased">
 
@@ -107,7 +33,6 @@
         </div>
 
         <div class="flex flex-col gap-3 w-80 md:w-96">
-            
             <button class="group relative flex items-center justify-between px-6 py-3 bg-blue-950/20 border-l-4 border-cyan-400 hover:bg-cyan-900/40 hover:border-cyan-200 transition-all backdrop-blur-md fade-in-up overflow-hidden" style="animation-delay: 0.2s;">
                 <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div class="flex flex-col items-start relative z-10">
@@ -141,7 +66,7 @@
                 </div>
                 <span class="tech-font text-[10px] text-gray-600 group-hover:text-gray-400">[04]</span>
             </button>
-
+            
             <button class="group relative flex items-center justify-between px-6 py-2 bg-transparent hover:bg-white/5 border-l-2 border-transparent hover:border-gray-400 transition-all ml-4 fade-in-up" style="animation-delay: 0.6s;">
                 <div class="flex flex-col items-start">
                     <span class="text-sm font-bold tracking-widest text-gray-400 group-hover:text-gray-200">LEGACY LOG</span>
@@ -149,27 +74,12 @@
                 <span class="tech-font text-[10px] text-gray-600 group-hover:text-gray-400">[05]</span>
             </button>
 
-            <button class="group relative flex items-center justify-between px-6 py-2 bg-transparent hover:bg-white/5 border-l-2 border-transparent hover:border-gray-400 transition-all ml-4 fade-in-up" style="animation-delay: 0.7s;">
-                <div class="flex flex-col items-start">
-                    <span class="text-sm font-bold tracking-widest text-gray-400 group-hover:text-gray-200">AVATAR STATUS</span>
-                </div>
-                <span class="tech-font text-[10px] text-gray-600 group-hover:text-gray-400">[06]</span>
-            </button>
-
-            <button class="group relative flex items-center justify-between px-6 py-2 bg-transparent hover:bg-white/5 border-l-2 border-transparent hover:border-gray-400 transition-all ml-4 fade-in-up" style="animation-delay: 0.8s;">
-                <div class="flex flex-col items-start">
-                    <span class="text-sm font-bold tracking-widest text-gray-400 group-hover:text-gray-200">ARCHIVE CONTRIBUTORS</span>
-                </div>
-                <span class="tech-font text-[10px] text-gray-600 group-hover:text-gray-400">[07]</span>
-            </button>
-
-            <button class="group relative flex items-center justify-between px-6 py-2 mt-2 bg-red-950/10 hover:bg-red-950/40 border-l-2 border-red-900/50 hover:border-red-500 transition-all ml-4 fade-in-up" style="animation-delay: 0.9s;">
+            <button class="group relative flex items-center justify-between px-6 py-2 mt-2 bg-red-950/10 hover:bg-red-950/40 border-l-2 border-red-900/50 hover:border-red-500 transition-all ml-4 fade-in-up" style="animation-delay: 0.7s;">
                 <div class="flex flex-col items-start">
                     <span class="text-sm font-bold tracking-widest text-red-500/60 group-hover:text-red-400">TERMINATE SESSION</span>
                 </div>
-                <span class="tech-font text-[10px] text-red-900/50 group-hover:text-red-500">[08]</span>
+                <span class="tech-font text-[10px] text-red-900/50 group-hover:text-red-500">[06]</span>
             </button>
-
         </div>
         
         <div class="absolute bottom-8 left-12 flex gap-8 text-[9px] text-cyan-600/60 tech-font uppercase tracking-widest fade-in-up" style="animation-delay: 1s;">
@@ -179,5 +89,6 @@
         
     </div>
 
+    <script src="script.js"></script>
 </body>
 </html>
